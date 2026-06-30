@@ -6,7 +6,8 @@
         <title>Projeto Autenticação</title>
     </head>
     <body>
-        <h2>Bem vindo!</h2>
+        <h2>Bem vindo</h2>
+        <p>Você está logado</p>
     
     </body>
 </html>

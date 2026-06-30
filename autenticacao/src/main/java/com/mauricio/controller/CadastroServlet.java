@@ -10,8 +10,8 @@ import java.io.IOException;
 import com.mauricio.data.BancoUsuario;
 import com.mauricio.model.Usuario;
 
-@WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/cadastro")
+public class CadastroServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,24 +20,25 @@ public class LoginServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         // Seu código vem aqui
+        String nomeDigitado = request.getParameter("nome");
         String usuarioDigitado = request.getParameter("usuario");
         String senhaDigitada = request.getParameter("senha");
-        Usuario usuarioLogado = null;
+        boolean existe = false;
 
         for(Usuario u : BancoUsuario.lista) {
-            if(u.getUsuario().equals(usuarioDigitado) && u.getSenha().equals(senhaDigitada)) {
-                usuarioLogado = u;
+            if(u.getUsuario().equals(usuarioDigitado)) {
+                existe = true;
                 break;
             }
         }
 
-        if(usuarioLogado != null) {
-            // login esta autorizado
-            request.getRequestDispatcher("bemvindo.jsp").forward(request, response);
+        if(existe) {
+            request.setAttribute("mensagemErro", "Este usuário já existe!");
+            request.getRequestDispatcher("cadastro.jsp").forward(request, response);
         } else {
-            // login nao esta autorizado
-            request.setAttribute("mensagemErro", "Usuario ou senha invalidos!");
+            BancoUsuario.lista.add(new Usuario(nomeDigitado, usuarioDigitado, senhaDigitada));
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
+
     }
 }

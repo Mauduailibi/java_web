@@ -6,21 +6,22 @@
         <title>Projeto Autenticação</title>
     </head>
     <body>
-        <h2>Faça login</h2>
+        <h2>Faça o cadastro</h2>
 
-        <form action="login" method="post">
+        <form action="cadastro" method="post">
 
+            <input name="nome" placeholder="Informe seu nome" /> <br><br>
             <input name="usuario" placeholder="Informe o usuario" /> <br><br>
             <input name="senha" type="password" placeholder="Informe a senha" /> <br><br>
 
-            <button type="submit">Entrar</button> <br><br>
-            <a href="cadastro.jsp">Faça seu cadastro</a>
+            <button type="submit">Cadastrar</button> <br><br>
+            <a href="/autenticacao">Faça login</a>
 
             <br>
 
             <p style="color: red;">${mensagemErro}</p>
 
-        </form>
+        </form>        
     
     </body>
 </html>
