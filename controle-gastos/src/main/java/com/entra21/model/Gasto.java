@@ -1,5 +1,7 @@
 package com.entra21.model;
 
+import java.time.LocalDate;
+
 public class Gasto {
     private int id;
     private int usuarioId;
