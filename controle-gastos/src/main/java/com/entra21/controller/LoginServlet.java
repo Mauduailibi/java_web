@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import com.entra21.db.UsuarioDAO;
@@ -38,7 +39,9 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("mensagemErro", "Usuario ou senha inválidos!");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
-            response.sendRedirect("painel.jsp");
+            HttpSession session = request.getSession();
+            session.setAttribute("usuarioLogado", usuarioEncontrado);
+            response.sendRedirect("painel");
         }
 
     }

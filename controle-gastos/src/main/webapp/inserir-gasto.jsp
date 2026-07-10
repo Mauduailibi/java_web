@@ -41,7 +41,7 @@
                 </div>
                 
                 <div class="btn-group">
-                    <a href="dashboard" class="btn btn-cancel">Cancelar</a>
+                    <a href="painel" class="btn btn-cancel">Cancelar</a>
                     <button type="submit">Salvar Despesa</button>
                 </div>
             </form>

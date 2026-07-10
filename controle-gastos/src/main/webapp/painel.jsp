@@ -15,7 +15,7 @@
     <div class="container-dashboard">
         <div class="header-content">
             <h3>Histórico de Gastos</h3>
-            <a href="novo-gasto.jsp" class="btn btn-primary">+ Adicionar Novo Gasto</a>
+            <a href="inserir-gasto.jsp" class="btn btn-primary">+ Adicionar Novo Gasto</a>
         </div>
         
         <div class="success">${mensagemSucesso}</div>
